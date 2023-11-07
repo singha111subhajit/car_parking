@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Specify the Dockerfile for your FastAPI app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    environment:
+      - DATABASE_URL=mongodb://mongodb:27017/carparking_db  # Use the MongoDB service name as the hostname
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=carparking_db

@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+motor
+passlib
+python-jose
+python-multipart
