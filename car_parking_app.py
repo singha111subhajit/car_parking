@@ -15,6 +15,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 
+
 app = FastAPI()
 
 # JWT Authentication settings
@@ -150,13 +151,10 @@ async def landlord_signup(user: LandlordSignup):
     
     return {"message": "Landlord user registered successfully"}
 
-
-
 # User Model for login
 class UserLogin(BaseModel):
     username: str
     password: str
-
 
 # Login endpoint for admin users
 @app.post("/login/admin", tags=["auth"])
@@ -202,7 +200,6 @@ async def carowner_login(user: CarOwnerLogin):
     if not complaint:
         raise HTTPException(status_code=400, detail="Invalid PCN or car number")
 
-    # You can add more checks here if needed
 
     # If the PCN and car number are valid, you can generate an access token
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
@@ -459,7 +456,6 @@ async def get_all_complaints_for_admin(current_user: str = Depends(get_current_u
     
 
 
-from fastapi import FastAPI, Depends, HTTPException, Security, Body
 
 class AppealModel(BaseModel):
     appeal_message: str
@@ -540,4 +536,4 @@ if __name__ == "__main__":
     import uvicorn
     import asyncio
     asyncio.run(create_revoked_tokens_collection())
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=80)

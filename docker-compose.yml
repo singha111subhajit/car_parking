@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile  # Specify the Dockerfile for your FastAPI app
     ports:
-      - "8000:8000"
+      - "80:8000"
     depends_on:
       - mongodb
     environment:
