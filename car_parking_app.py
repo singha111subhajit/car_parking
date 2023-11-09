@@ -536,4 +536,4 @@ if __name__ == "__main__":
     import uvicorn
     import asyncio
     asyncio.run(create_revoked_tokens_collection())
-    uvicorn.run(app, host="0.0.0.0", port=80)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
